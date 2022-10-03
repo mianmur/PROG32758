@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>School Registry</title>
+</head>
+<body>
+
+	<h1>Use this page to add a school</h1>
+	<form action="#" th:action="@{/addSchool}" method="POST" th:object="${school}">
+		
+		Name: <input type="text" th:field="*{name}"><br>
+		Address: <input type="text" th:field="*{addr}"><br>
+		Number of students: <input type="number" th:field="*{numStudents}"><br>
+		
+		<input type="submit" value="submit"><br>
+		
+	</form>
+
+</body>
+</html>

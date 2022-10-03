@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<!--    using th:text. thymeleaf will replace all <h2> with the dymanic contents-->
+    <h2 th:text="|Welcome ${firstName} ${lastName}|">
+<!--        what will be displayed when opened as a file-->
+        Registration Successful
+    </h2>
+
+    <h3 th:if="${rememberMe == 'on'}">You will be remembered!</h3>
+
+</body>
+</html>
