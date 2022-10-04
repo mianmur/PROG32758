@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 4</title>
+</head>
+<body>
+
+
+    <h1>Welcome to our Film Database</h1>
+    <div th:if="${movieList.empty}">
+        There are no movies in the database<br>
+        <h3><a href="/addPage">ADD A MOVIE TO BEGIN</a></h3>
+    </div>
+
+    <div th:unless="${movieList.empty}">
+        <ul>
+            <li><a href="/addPage">ADD A MOVIE</a></li>
+            <li><a href="/movieDB">VIEW MOVIES</a></li>
+            <li><a href="/resetDB">RESET DATABASE</a></li>
+        </ul>
+
+</div>
+</body>
+</html>

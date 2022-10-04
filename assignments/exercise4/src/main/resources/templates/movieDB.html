@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie DB</title>
+</head>
+<body>
+
+  <div th:if="${movieList.empty}">
+    <h1>There are no movies currently in the database</h1>
+    <a href="/registerPage">ADD A MOVIE TO BEGIN</a><br>
+    <a href="/">HOME</a>
+  </div>
+
+  <div th:unless="${movieList.empty}">
+    <h1>FILMS OWNED:</h1>
+    <ul th:each="movie : ${movieList}">
+      <li
+              th:text="|${movie.name} (${movie.yrRelease}) directed by ${movie.director}|"></li>
+    </ul>
+    <a href="/">HOME</a>
+  </div>
+
+</body>
+</html>
