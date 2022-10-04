@@ -13,7 +13,7 @@
   <form action="#" th:action="@{/addMovie}" method="POST" th:object="${movie}">
     Name: <input type="text" th:field="*{name}"><br>
     Director: <input type="text" th:field="*{director}"><br>
-    Release Date: <input type="number" th:field="*{yrRelease}"><br>
+    Release Date: <input type="date" th:field="*{yrRelease}"><br>
     <input type="submit" value="submit"><br>
   </form>
 

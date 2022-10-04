@@ -17,7 +17,7 @@
     <h1>FILMS OWNED:</h1>
     <ul th:each="movie : ${movieList}">
       <li
-              th:text="|${movie.name} (${movie.yrRelease}) directed by ${movie.director}|"></li>
+              th:text="|${movie.name} (${#dates.format(movie.yrRelease, 'yyyy')}) directed by ${movie.director}|"></li>
     </ul>
     <a href="/">HOME</a>
   </div>
