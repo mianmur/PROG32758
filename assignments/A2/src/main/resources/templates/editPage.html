@@ -1,0 +1,32 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Enter your information</h1>
+    <form action="#" th:action="@{/addUser}" method="POST" th:object="${regist}">
+
+        First Name: <input type="text" th:placeholder="*{fname}" th:field="*{fname}" th:required="required"><br>
+        Last Name: <input type="text" th:placeholder="*{lname}" th:field="*{lname}" th:required="required"><br>
+        Role:<select th:field="*{role}">
+            <option th:each="r : *{roles}"
+                    th:value="${r}" th:text="${r}">
+            </option>
+        </select><br>
+        <input type="hidden" th:field="*{id}">
+
+        <input type="submit" value="UPDATE" id="submit-button">
+        <a href="#" th:href="|/deleteUser/${regist.id}|">DELETE</a><br>
+
+        <a th:href="@{/}">Back to list</a>
+    </form>
+
+</div>
+
+</body>
+</html>
