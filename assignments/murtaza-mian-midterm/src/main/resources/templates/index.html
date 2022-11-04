@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Murtaza's Midterm</title>
+</head>
+<body>
+    <h1>Welcome to the Midterm!</h1>
+    <div th:unless="${array.empty}">
+        <h2>User Added Successfully</h2>
+    </div>
+    <form action="#" th:action="@{/login}" method="POST" th:object="${user}">
+
+        Username: <input type="text" th:field="*{name}" th:required="required"><br>
+        Password: <input type="password" th:field="*{password}" th:required="required"><br>
+        <input type="submit" value="GO!"><br>
+    </form><br>
+
+    <a href="/register">Register New User</a>
+</body>
+</html>

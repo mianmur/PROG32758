@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Murtaza's Midterm</title>
+</head>
+<body>
+    <h1 th:text="|Hello ${user.name}, here are the users:|"></h1>
+    <h2>Feel free to contact them</h2><br>
+
+    <div th:unless="${userList.empty}">
+        <table>
+            <tr>
+                <th>Name</th><th>Phone</th>
+            </tr>
+            <tr th:each="u : ${userList}">
+                <td th:text="${u.name}"></td>
+                <td th:text="${u.phone}"></td>
+            </tr>
+        </table><br>
+    </div>
+
+    <a href="/">Back to Main Page</a>
+
+</body>
+</html>
