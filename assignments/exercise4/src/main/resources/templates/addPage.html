@@ -11,9 +11,9 @@
   <h1>Use this page to add a film</h1>
 
   <form action="#" th:action="@{/addMovie}" method="POST" th:object="${movie}">
-    Name: <input type="text" th:field="*{name}"><br>
-    Director: <input type="text" th:field="*{director}"><br>
-    Release Date: <input type="date" th:field="*{yrRelease}"><br>
+    Name: <input type="text" th:field="*{name}" th:required="required"><br>
+    Director: <input type="text" th:field="*{director}" th:required="required"><br>
+    Release Date: <input type="date" th:field="*{yrRelease}" th:required="required"><br>
     <input type="submit" value="submit"><br>
   </form>
 

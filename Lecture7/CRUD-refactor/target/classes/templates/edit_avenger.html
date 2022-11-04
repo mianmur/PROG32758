@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Avengers Registry Edit</title>
+</head>
+<body>
+
+  <h1>Enter your hero's information</h1>
+  <form action="#" th:action="@{/updateAvenger}" method="POST"
+        th:object="${avenger}">
+    <input type="hidden" th:field="*{id}">
+    Name: <input type="text" th:field="*{name}"><br>
+    Age: <input type="number" th:field="*{age}"><br>
+
+    <input type="submit" value="UPDATE"><br>
+
+  </form>
+
+</body>
+</html>

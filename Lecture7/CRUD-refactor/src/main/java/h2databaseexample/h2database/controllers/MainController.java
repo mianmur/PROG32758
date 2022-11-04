@@ -1,7 +1,7 @@
 package h2databaseexample.h2database.controllers;
 
 import h2databaseexample.h2database.beans.Avenger;
-import h2databaseexample.h2database.database.DatabaseAccess;
+import h2databaseexample.h2database.repository.AvengerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,57 +15,54 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    private DatabaseAccess database;
+    private AvengerRepository avengerRepository;
 
-    public MainController(DatabaseAccess database) {
-        this.database = database;
+    public MainController(AvengerRepository avengerRepository) {
+        this.avengerRepository = avengerRepository;
     }
-    private ArrayList<Avenger> avengerList = new ArrayList<>();
 
     @GetMapping("")
     public String index(Model model){
-        List<Avenger> avengers = database.getAvengers();
+        List<Avenger> avengers = avengerRepository.findAll();
         model.addAttribute("avengerList", avengers);
         return "index";
     }
+
     @GetMapping("/addPage")
     public String goToAdd(Model model) {
         model.addAttribute("avenger", new Avenger());
         return "registerAvenger";
     }
-
     @PostMapping("/addAvenger")
     public String addAvenger(@ModelAttribute Avenger avenger)
     {
-        int returnValue = database.addAvenger(avenger);
-        System.out.println("return value is: " + returnValue);
+        avengerRepository.save(avenger);
         return "redirect:/";
     }
-
 
     @GetMapping("/deleteAvenger/{id}")
         public String deleteAvenger(@PathVariable Long id) {
-        int returnValue = database.deleteAvenger(id);
+        avengerRepository.deleteById(id);
         return "redirect:/";
     }
 
-    @GetMapping("/editAvenger/{id}")
-    public String editAvengerPage(@PathVariable Long id, Model model) {
-        Avenger avenger = database.getAvenger(id);
-
-        if (avenger==null) {
-            System.out.println("No result for id=" + id);
-            return "redirect:/";
-        }
-        model.addAttribute("avenger", avenger);
-        return "edit_avenger";
-    }
-
-    @PostMapping("/updateAvenger")
-    public String updateAvenger(@ModelAttribute Avenger avenger) {
-        int returnValue = database.editAvenger(avenger);
-        return "redirect:/";
-    }
+//    @GetMapping("/editAvenger/{id}")
+//    public String editAvengerPage(@PathVariable Long id, Model model) {
+//        Avenger avenger = database.getAvenger(id);
+//
+//        if (avenger==null) {
+//            System.out.println("No result for id=" + id);
+//            return "redirect:/";
+//        }
+//        model.addAttribute("avenger", avenger);
+//        return "edit_avenger";
+//    }
+//
+//    @PostMapping("/updateAvenger")
+//    public String updateAvenger(@ModelAttribute Avenger avenger) {
+//        int returnValue = database.editAvenger(avenger);
+//        return "redirect:/";
+//    }
 
 
 }
