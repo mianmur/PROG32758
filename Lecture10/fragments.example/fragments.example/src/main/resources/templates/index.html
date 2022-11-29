@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/header.html :: html-head"></head>
+
+<body>
+
+<header th:insert="fragments/header.html :: page-header"></header><br>
+
+<table>
+    <tr><th>Student Name</th></tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.userName}">Student Name</td>
+    </tr>
+</table>
+
+<hr>
+
+<form method="post" th:action="@{/addStudent}" th:object="${student}">
+    Name: <input type="text" th:field="*{userName}" />
+    <input type="submit" value="Add Student to List!">
+</form>
+<br>
+
+
+<div th:include="fragments/links :: div.bottom-links"></div>
+<br>
+
+<div th:replace="fragments/footer.html :: page-footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Section</title>
+</head>
+<body>
+    <h1>Welcome to Secure Area</h1>
+
+	<div th:if="${message}" class="error">
+		<p th:text="${message}"	style="color: red;"/>
+	</div>
+    User's Name: <span sec:authentication="name"></span><br>
+    Roles: <span sec:authentication="principal.authorities"></span>
+    <br><br>
+
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <p>Go to the <a href="#" th:href="@{/user}">User secured pages</a></p>
+    </div>
+
+    <div sec:authorize="hasRole('ROLE_MANAGER')">
+        <p>Go to the
+          <a href="#" th:href="@{/manager}">Manager secured pages</a></p>
+    </div>
+
+    <form action="#" th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>
