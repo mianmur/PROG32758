@@ -1,4 +1,4 @@
-package ca.sheridan.review3.database;
+package ca.sheridan.review3.repository;
 
 import ca.sheridan.review3.beans.Review;
 import org.springframework.data.jpa.repository.JpaRepository;

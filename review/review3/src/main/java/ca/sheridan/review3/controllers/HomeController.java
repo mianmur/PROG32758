@@ -1,8 +1,8 @@
 package ca.sheridan.review3.controllers;
 
 import ca.sheridan.review3.beans.Book;
-import ca.sheridan.review3.database.BookRepository;
-import ca.sheridan.review3.database.DatabaseAccess;
+import ca.sheridan.review3.repository.BookRepository;
+import ca.sheridan.review3.security.DatabaseAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.GrantedAuthority;

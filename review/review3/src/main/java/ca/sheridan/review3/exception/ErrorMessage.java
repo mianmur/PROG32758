@@ -1,4 +1,4 @@
-package ca.sheridan.review3.beans;
+package ca.sheridan.review3.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

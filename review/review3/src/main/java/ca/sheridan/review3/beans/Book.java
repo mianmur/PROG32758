@@ -1,5 +1,6 @@
 package ca.sheridan.review3.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,8 +18,8 @@ import java.util.List;
 public class Book {
 
     @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
-    @JoinColumn(name = "book_id")
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "book")
+//    @JoinColumn(name = "book_id")
     private List<Review> reviews = new ArrayList<>();
 
     @Id
@@ -30,4 +31,11 @@ public class Book {
 
     @Column(name = "author")
     private String author;
+
+    public Book(Long book_id, String title, String author) {
+        this.book_id=book_id;
+        this.title=title;
+        this.author=author;
+    }
+    public void removeReviews() { this.reviews.clear();}
 }

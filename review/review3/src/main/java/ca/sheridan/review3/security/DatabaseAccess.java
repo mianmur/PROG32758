@@ -1,4 +1,4 @@
-package ca.sheridan.review3.database;
+package ca.sheridan.review3.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
