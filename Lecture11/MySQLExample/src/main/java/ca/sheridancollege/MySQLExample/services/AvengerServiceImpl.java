@@ -2,7 +2,6 @@ package ca.sheridancollege.MySQLExample.services;
 
 import ca.sheridancollege.MySQLExample.entity.Avenger;
 import ca.sheridancollege.MySQLExample.repository.AvengerRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -6,7 +6,28 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
+<div th:if="${test==1}">
+	<h1>Enter your information</h1>
+	<form action="#" th:action="@{/addUser}" method="POST" th:object="${regist}">
 
+		First Name: <input type="text" th:placeholder="*{fname}" th:field="*{fname}" th:required="required"><br>
+		Last Name: <input type="text" th:placeholder="*{lname}" th:field="*{lname}" th:required="required"><br>
+		Role:<select th:field="*{role}">
+		<option th:each="r : *{roles}"
+				th:value="${r}" th:text="${r}">
+		</option>
+	</select><br>
+		<input type="hidden" th:field="*{id}">
+
+		<input type="submit" value="UPDATE">
+		<a href="#" th:href="|/deleteUser/${regist.id}|">DELETE</a><br>
+
+		<a th:href="@{/}">Back to list</a>
+	</form>
+
+</div>
+</div>
+<div th:if="${test}==0">
 		<h1>Enter your information</h1>
 		<form action="#" th:action="@{/addUser}" method="POST" th:object="${regist}">
 
@@ -18,8 +39,6 @@
 				</option>
 			</select><br>
 			<input type="hidden" th:field="*{id}">
-<!--			<input type="hidden" th:field="*{created}">-->
-<!--			<input type="hidden" th:field="*{updated}">-->
 
 
 			<input type="submit" value="submit" id="submit-button">
@@ -43,11 +62,10 @@
 					<td th:text="${u.role}"></td>
 					<td th:text="${u.creationDate.toString()}"></td>
 					<td th:text="${u.lastModifiedDate.toString()}"></td>
-<!--					<td><a href="#" th:href="|/deleteUser/${u.id}|">delete</a></td>-->
 					<td><a th:href="@{/showUpdateForm(id=${u.id})}" class="btn btn-info">ACTION</a></td>
 				</tr>
 			</div>
 		</table><br>
-
+<div>
 </body>
 </html>

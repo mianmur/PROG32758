@@ -8,15 +8,19 @@
 		<version>2.7.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ca.sheridancollege</groupId>
-	<artifactId>MySQLExample</artifactId>
+	<groupId>ca.sheridan</groupId>
+	<artifactId>dec07</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MySQLExample</name>
-	<description>mysql</description>
+	<name>dec07</name>
+	<description>1tomanyrelationshipwith2tables</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -27,8 +31,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -42,20 +46,21 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-commons</artifactId>
-			<version>2.7.5</version>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>RELEASE</version>
-			<scope>compile</scope>
 		</dependency>
+
+
+
 		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>2.2.3</version>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version>
 		</dependency>
 	</dependencies>
 
