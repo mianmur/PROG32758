@@ -71,16 +71,4 @@ public class ReviewApi{
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-    @DeleteMapping("/book/{id}/reviews")
-    public ResponseEntity<List<Review>> deleteAllReviewsOfBook(@PathVariable(value = "id") Long id) {
-        Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Not found " +
-                        "Tutorial with id = " + id));
-
-        book.removeReviews();
-        bookRepository.save(book);
-
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
 }
