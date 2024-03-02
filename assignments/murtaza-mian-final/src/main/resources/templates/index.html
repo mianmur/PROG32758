@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/header.html :: html-head"></head>
+
+<body>
+	<header th:insert="fragments/header.html :: page-header"></header>
+	<h1>Select a student to view the courses</h1>
+	
+	<form action="#" th:action="@{/view-student/}" th:object="${student}">
+		<select th:field="*{student_id}">
+			<option th:each="s : ${studentList}" th:value="${s.student_id}" th:text="${s.name}">
+		</select>
+		<br /><br />
+		<input type="submit" value="View Grades">
+	</form>
+	
+		<br>
+	<div th:replace="fragments/footer.html :: page-footer"></div>
+
+</body>
+</html>
+
+
+<!--OLD METHOD FOR USING TABLE VIEW, USED TO START OFF -->
+<!--	<table>-->
+<!--		<tr th:each="student : ${studentList}">-->
+<!--			<td th:text="${student.name}"></td>-->
+<!--			<td><a href="#" th:href="|/student/${student.student_id}|">View</a></td>-->
+<!--		</tr>-->
+<!--	</table><br>-->

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/header.html :: html-head"></head>
+
+<body>
+	<header th:insert="fragments/header.html :: page-header"></header>
+	
+	<h1 th:text="|Add a course for ${student.name}|"></h1>
+	
+	<form action="#" th:action="@{'/student/' + ${student.student_id} + '/addCourse'}" method="POST"
+		  th:object="${course}">
+		Course Name: <input type="text" th:field="*{name}" required="required" placeholder="Math"><br>
+		Grade: <input type="number" th:field="*{grade}" required="required" placeholder="100" min="0" max="100"><br>
+		<input type="submit" value="submit"><br>
+	</form>
+	
+	
+	<br>
+	<div th:replace="fragments/footer.html :: page-footer"></div>
+</body>
+</html>
